@@ -1,6 +1,6 @@
 import products, { type Product } from "../data/products";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const containerVariants = {
   hidden: {},
@@ -13,19 +13,19 @@ const cardVariants = {
 };
 
 export default function AllProducts() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return (
     <section className="py-24 bg-white min-h-screen">
       <div className="px-6 max-w-7xl mx-auto">
 
         {/* Back Button */}
-        <button
+        {/* <button
           onClick={() => navigate("/")}
           className="mb-6 text-orange-500 hover:underline"
         >
         
-        </button>
+        </button> */}
 
         {/* Heading */}
         <motion.div

@@ -57,15 +57,13 @@ function BannerCarousel({ images }: { images: string[] }) {
       <button
         onClick={prevSlide}
         className="absolute left-6 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-3 rounded-full backdrop-blur"
-      >
-        ‹
+      >     
       </button>
 
       <button
         onClick={nextSlide}
         className="absolute right-6 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-3 rounded-full backdrop-blur"
       >
-        ›
       </button>
 
       {/* Dots */}
@@ -122,12 +120,25 @@ export default function About() {
           </div>
 
           <div className="space-y-6">
-            <h3 className="text-3xl font-semibold text-gray-900">
+            <h3 className="text-3xl font-semibold text-gray-900 text-center lg:text-left">
               Our Vision & Approach
             </h3>
-            <p className="text-gray-600">
-              We operate strictly as a B2B manufacturer, ensuring every product
-              is built for resale success.
+             <p className="text-gray-600 leading-relaxed">
+              At Nepcha, we don’t compete with our partners we empower them. 
+              We operate strictly as a B2B manufacturer, ensuring every product 
+              we create is tailored for resale success rather than direct-to-consumer competition.
+            </p>
+
+            <p className="text-gray-600 leading-relaxed">
+              Our vision is to become Nepal’s most trusted B2B footwear provider,
+              helping dealers scale confidently by offering collections that combine
+              durability, style, and affordability.
+            </p>
+
+            <p className="text-gray-600 leading-relaxed">
+              From sourcing premium materials to delivering finished products on time, 
+              our approach focuses on quality, consistency, and scalability, ensuring
+              a reliable supply chain for all our partners.
             </p>
           </div>
         </div>
