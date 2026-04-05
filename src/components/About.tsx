@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import logo from "../assets/nepcha.png";
+import logo from "/shoesimg/nepcha.png";
 import { motion } from "framer-motion";
 import { TrendingUp, Factory, ShieldCheck } from "lucide-react";
 import dealers from "../data/dealers";
