@@ -15,7 +15,7 @@ export default function Home() {
       <Services />
       <Products />
       <Contact />
-      <FloatingWhatsApp phoneNumber={'9828885834'} accountName={'Nepcha International Industry'} avatar={'public/shoesimg/nepcha.png'} onSubmit={()=>{console.log("Message Sent ")}} />
+      <FloatingWhatsApp phoneNumber={'9828885834'} accountName={'Nepcha International Industry'} avatar={'/shoesimg/nepcha.png'} onSubmit={()=>{console.log("Message Sent ")}} />
     </div>
   );
 }
