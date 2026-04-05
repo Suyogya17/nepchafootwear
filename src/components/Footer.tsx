@@ -1,4 +1,4 @@
-import { Mail, Phone, ArrowUp } from 'lucide-react';
+import { Mail, Phone, ArrowUp, MapPin } from 'lucide-react';
 import { FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 export default function Footer() {
@@ -35,7 +35,11 @@ export default function Footer() {
               </div>
               <div className="flex items-center space-x-2 text-gray-300 hover:text-black transition-colors">
                 <Phone className="w-4 h-4" />
-                <span>(+977 9801234567)</span>
+                <span>+977 9828885834</span>
+              </div>
+              <div className="flex items-center space-x-2 text-gray-300 hover:text-black transition-colors">
+                <MapPin className="w-4 h-4" />
+                <span>Lalitpur, Nepal</span>
               </div>
             </div>
           </div>
