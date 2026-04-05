@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -8,6 +9,7 @@ export default function Navigation() {
   const [mobileSubmenuOpen, setMobileSubmenuOpen] = useState<string | null>(
     null
   );
+  const navigate = useNavigate();
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -66,7 +68,10 @@ export default function Navigation() {
           {/* LOGO */}
           <div
             className="cursor-pointer font-bold text-xl"
-            onClick={() => scrollToSection("hero")}
+           onClick={() => {
+  navigate("/");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}}
           >
             <span className={isScrolled ? "text-black" : "text-black"}>
               Nepcha

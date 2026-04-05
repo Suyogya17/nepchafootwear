@@ -85,9 +85,9 @@ function BannerCarousel({ images }: { images: string[] }) {
 /* -------------------- ABOUT PAGE -------------------- */
 export default function About() {
   const banners = [
-    "/images/banner1.jpg",
-    "/images/banner2.jpg",
-    "/images/banner3.jpg",
+    "https://i.pinimg.com/originals/eb/1a/7f/eb1a7f37ec4f9a29eef48f513c6a3c0f.gif",
+    "https://i.pinimg.com/1200x/f6/70/e0/f670e036d26c7a32d33c76ce8a7895c7.jpg",
+    "https://i.pinimg.com/1200x/28/e4/63/28e4634b5ec88dfbac78dbd9cc0fca0e.jpg",
   ];
 
   return (
@@ -174,7 +174,7 @@ export default function About() {
       </div>
 
       {/* 🔥 FULL WIDTH BANNER (OUTSIDE CONTAINER) */}
-      <div className="w-full mb-32">
+      <div className="w-full mb-26">
         <BannerCarousel images={banners} />
       </div>
 
