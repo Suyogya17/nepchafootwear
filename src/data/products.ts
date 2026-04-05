@@ -3,6 +3,7 @@ export type Product = {
   name: string;
   category: string;
   image: string;
+  size: string;
   description: string;
 };
 
@@ -12,6 +13,7 @@ const products: Product[] = [
     name: "Runner Pro",
     category: "Sports",
     image: "  /shoesimg/casual.jpg",
+    size: "36-40",
     description: "Lightweight running shoe designed for comfort and durability.",
   },
   {
@@ -19,6 +21,7 @@ const products: Product[] = [
     name: "Urban Walk",
     category: "Casual",
     image: "/shoesimg/sneaker.jpg",
+    size: "36-40",
     description: "Perfect everyday wear with a modern and stylish look.",
   },
   {
@@ -26,12 +29,14 @@ const products: Product[] = [
     name: "Classic Leather",
     category: "Formal",
     image: "/shoesimg/formal.jpg",
+    size: "36-40",
     description: "Premium leather shoe for formal occasions.",
   },
   {
     id: 4,
     name: "Runner Pro",
     category: "Sports",
+    size: "36-40",
     image: "https://i.pinimg.com/1200x/1a/71/3e/1a713eb78bb75491db3920e45c455945.jpg",
     description: "Lightweight running shoe designed for comfort and durability.",
   },
@@ -39,6 +44,7 @@ const products: Product[] = [
     id: 5,
     name: "Urban Walk",
     category: "Casual",
+    size: "36-40",
     image: "https://i.pinimg.com/736x/fc/78/fe/fc78fe142c62773cd935314608c3e6db.jpg",
     description: "Perfect everyday wear with a modern and stylish look.",
   },
@@ -46,6 +52,7 @@ const products: Product[] = [
     id: 6,
     name: "Classic Leather",
     category: "Formal",
+    size: "36-40",
     image: "https://i.pinimg.com/1200x/e3/33/9f/e3339f4868e1206f64224b44e0da6125.jpg",
     description: "Premium leather shoe for formal occasions.",
   },

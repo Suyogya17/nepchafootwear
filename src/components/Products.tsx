@@ -66,6 +66,8 @@ export default function Products() {
 
               <p className="text-sm text-gray-500">{product.category}</p>
 
+               <p className="text-sm text-gray-900">Size: {product.size}</p>
+
               <p className="text-gray-600 mt-2 text-sm">{product.description}</p>
 
               <button className="mt-4 w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition">

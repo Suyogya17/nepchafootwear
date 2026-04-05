@@ -62,6 +62,7 @@ export default function AllProducts() {
               />
               <h2 className="text-xl font-semibold mt-4">{product.name}</h2>
               <p className="text-sm text-gray-500">{product.category}</p>
+               <p className="text-sm text-gray-900">Size: {product.size}</p>
               <p className="text-gray-600 mt-2 text-sm">{product.description}</p>
               <button className="mt-4 w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition">
                 Request Quote

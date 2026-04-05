@@ -5,8 +5,10 @@ const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
     name: "",
     organization: "",
+    Address: "",
     email: "",
     contact: "",
+    country: "",
     message: "",
   });
 
@@ -43,8 +45,10 @@ const Contact: React.FC = () => {
         setFormData({
           name: "",
           organization: "",
+          Address: "",
           email: "",
           contact: "",
+          country: "",  
           message: "",
         });
         setIsSubmitting(false);
@@ -103,7 +107,21 @@ const Contact: React.FC = () => {
               className="w-full p-4 rounded-xl bg-gray-800 border border-gray-700 text-white focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-all"
             />
           </div>
-
+          {/* Address */}
+          <div>
+            <label className="block mb-2 font-medium text-gray-200">
+              Address
+            </label>
+            <input
+              type="text"
+              name="address"
+              value={formData.Address}
+              onChange={handleChange}
+              placeholder="Your Address"
+              required
+              className="w-full p-4 rounded-xl bg-gray-800 border border-gray-700 text-white focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-all"
+            />
+          </div>
           {/* Email */}
           <div>
             <label className="block mb-2 font-medium text-gray-200">Email</label>
@@ -113,6 +131,19 @@ const Contact: React.FC = () => {
               value={formData.email}
               onChange={handleChange}
               placeholder="you@example.com"
+              required
+              className="w-full p-4 rounded-xl bg-gray-800 border border-gray-700 text-white focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-all"
+            />
+          </div>
+           {/* Email */}
+          <div>
+            <label className="block mb-2 font-medium text-gray-200">Country</label>
+            <input
+              type=""
+              name="country"
+              value={formData.country}
+              onChange={handleChange}
+              placeholder="Your Country"
               required
               className="w-full p-4 rounded-xl bg-gray-800 border border-gray-700 text-white focus:border-orange-500 focus:ring-1 focus:ring-orange-500 transition-all"
             />

@@ -72,7 +72,7 @@ export default function Hero() {
         {/* Subheadline */}
         <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mt-6 leading-relaxed">
           Nepcha International Footwear Industry Pvt Ltd delivers high-quality,
-          durable, and stylish footwear for wholesalers, retailers, and
+          durable, and stylish footwear for wholesalers and
           distributors across Nepal.
         </p>
 
