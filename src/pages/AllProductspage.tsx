@@ -1,74 +1,118 @@
+import { useState } from "react";
 import products, { type Product } from "../data/products";
 import { motion } from "framer-motion";
-// import { useNavigate } from "react-router-dom";
-
-const containerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.2 } },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-};
+import { useNavigate } from "react-router-dom";
 
 export default function AllProducts() {
-  // const navigate = useNavigate();
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [search, setSearch] = useState("");
+  const navigate = useNavigate();
+  const categories = ["all", "sports", "casual", "formal"];
+
+  const filteredProducts = products.filter((p) => {
+    const matchCategory =
+      selectedCategory === "all" ||
+      p.category.toLowerCase() === selectedCategory;
+
+    const matchSearch = p.name
+      .toLowerCase()
+      .includes(search.toLowerCase());
+
+    return matchCategory && matchSearch;
+  });
 
   return (
-    <section className="py-24 bg-white min-h-screen">
+    <section className="py-20 bg-gray-50 min-h-screen">
       <div className="px-6 max-w-7xl mx-auto">
 
-        {/* Back Button */}
-        {/* <button
-          onClick={() => navigate("/")}
-          className="mb-6 text-orange-500 hover:underline"
-        >
-        
-        </button> */}
-
         {/* Heading */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <h1 className="text-4xl font-bold text-gray-900">All Products</h1>
+        <div className="text-center mb-10">
+          <h1 className="text-4xl font-bold text-gray-900">
+            All Products
+          </h1>
           <p className="mt-2 text-gray-600">
-            Explore our complete range of high-quality footwear.
+            Explore our premium footwear collection
           </p>
-        </motion.div>
+        </div>
 
-        {/* Products Grid */}
+        {/* SEARCH + FILTER */}
+        <div className="flex flex-col md:flex-row gap-4 justify-between items-center mb-10">
+
+          {/* Search */}
+          <input
+            type="text"
+            placeholder="Search products..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="w-full md:w-80 px-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-orange-400"
+          />
+
+          {/* Filters */}
+          <div className="flex flex-wrap gap-2">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={`px-4 py-2 rounded-full text-sm transition ${
+                  selectedCategory === cat
+                    ? "bg-orange-500 text-white shadow"
+                    : "bg-white border text-gray-700 hover:bg-gray-100"
+                }`}
+              >
+                {cat.charAt(0).toUpperCase() + cat.slice(1)}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* PRODUCT GRID */}
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
         >
-          {products.map((product: Product) => (
-            <motion.div
-              key={product.id}
-              variants={cardVariants}
-              whileHover={{ scale: 1.05 }}
-              className="border rounded-2xl p-4 shadow hover:shadow-xl transition bg-white text-black"
-            >
-              <img
-                src={product.image}
-                alt={product.name}
-                className="h-56 w-full object-cover rounded-xl"
-              />
-              <h2 className="text-xl font-semibold mt-4">{product.name}</h2>
-              <p className="text-sm text-gray-500">{product.category}</p>
-               <p className="text-sm text-gray-900">Size: {product.size}</p>
-              <p className="text-gray-600 mt-2 text-sm">{product.description}</p>
-              <button className="mt-4 w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition">
-                Request Quote
-              </button>
-            </motion.div>
-          ))}
+          {filteredProducts.length > 0 ? (
+            filteredProducts.map((product: Product) => (
+              <motion.div
+                key={product.id}
+                whileHover={{ y: -5 }}
+                onClick={() => navigate(`/product/${product.id}`)}
+                className="cursor-pointer bg-white rounded-2xl overflow-hidden shadow hover:shadow-xl transition"
+              >
+                {/* Image */}
+                <div className="h-56 w-full overflow-hidden">
+                  <img
+                    src={product.image.trim()}
+                    alt={product.name}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="p-4">
+                  <h2 className="text-lg font-semibold text-gray-900">
+                    {product.name}
+                  </h2>
+
+                  <p className="text-sm text-gray-500">
+                    {product.category}
+                  </p>
+
+                  <p className="text-sm text-gray-800 mt-1">
+                    Size: {product.size}
+                  </p>
+
+                  <p className="text-sm text-gray-600 mt-2 line-clamp-2">
+                    {product.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))
+          ) : (
+            <p className="col-span-3 text-center text-gray-500">
+              No products found.
+            </p>
+          )}
         </motion.div>
       </div>
     </section>

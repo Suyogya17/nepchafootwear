@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -133,12 +134,25 @@ export default function Navigation() {
 
           {/* MOBILE BUTTON */}
           <div className="md:hidden">
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={isScrolled ? "text-black" : "text-white"}
-            >
-              {isMobileMenuOpen ? <X /> : <Menu />}
-            </button>
+            <motion.button
+  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+  className="p-2 rounded-lg bg-orange-100/90 backdrop-blur-md hover:bg-orange-200/90 backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+  whileTap={{ scale: 0.9 }}
+  aria-label="Toggle menu"
+>
+  <motion.div
+    key={isMobileMenuOpen ? "open" : "closed"}
+    initial={{ rotate: 0, opacity: 0 }}
+    animate={{ rotate: isMobileMenuOpen ? 90 : 0, opacity: 1 }}
+    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+  >
+    {isMobileMenuOpen ? (
+      <X className="text-gray-800 w-6 h-6" />
+    ) : (
+      <Menu className="text-gray-800 w-6 h-6" />
+    )}
+  </motion.div>
+</motion.button>
           </div>
         </div>
 
@@ -158,7 +172,7 @@ export default function Navigation() {
                   >
                     {item.label}
                     <ChevronDown
-                      className={`w-4 h-4 transition-transform ${
+                      className={`w-4 h-4  transition-transform ${
                         mobileSubmenuOpen === item.id ? "rotate-180" : ""
                       }`}
                     />
