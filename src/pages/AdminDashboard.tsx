@@ -3,14 +3,14 @@ import { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { productService, uploadImage, authService } from '../services/api';
 
-type Color = { name: string; hex: string; image: string};
 type Product = {
   _id: string; name: string; category: string;
-  size: string; description: string; colors: Color[];
+  size: string; description: string;
+  colors: { name: string; hex: string; image: string }[];
 };
 
 const emptyForm = {
-  name: '', category: 'Sports', size: '36-40', description: '', colors: [] as Color[],
+  name: '', category: 'Sports', size: '36-40', description: '', colors: [] as { name: string; hex: string; image: string }[],
 };
 
 const COLOR_PRESETS: Record<string, string> = {
@@ -52,7 +52,7 @@ export default function AdminDashboard() {
     setForm((f) => ({ ...f, colors: f.colors.filter((_, idx) => idx !== i) }));
   };
 
-  const updateColor = (i: number, field: keyof Color, value: string) => {
+  const updateColor = (i: number, field: keyof { name: string; hex: string; image: string }, value: string) => {
     setForm((f) => {
       const colors = [...f.colors];
       colors[i] = { ...colors[i], [field]: value };
