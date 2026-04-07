@@ -5,7 +5,6 @@ import Services from '../components/Service';
 import Products from '../components/Products';
 import Contact from '../components/Contact';
 import { FloatingWhatsApp } from 'react-floating-whatsapp'
-import ProductDetail from './ProductDetailPage';
 
 export default function Home() {
   return (
