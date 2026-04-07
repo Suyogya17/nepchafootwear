@@ -39,7 +39,7 @@ export default function ProductDetail() {
   );
 
   const color = product.colors[selectedColor];
-  const imageUrl = color?.image ? `https://nepcha-server.onrender.com${color.image}` : '';
+  const imageUrl = color?.image;
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">

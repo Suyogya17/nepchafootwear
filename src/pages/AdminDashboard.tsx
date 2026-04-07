@@ -2,6 +2,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { productService, uploadImage, authService } from '../services/api';
+import { color } from 'framer-motion';
 
 type Color = { name: string; hex: string; image: string; };
 type Product = {
@@ -188,8 +189,7 @@ export default function AdminDashboard() {
                 {/* Thumbnail */}
                 <div className="w-16 h-16 rounded-xl overflow-hidden bg-gray-100 flex-shrink-0">
                   {p.colors[0]?.image ? (
-                    <img
-                      src={`https://nepcha-server.onrender.com${p.colors[0].image}`}
+                    <img src={p.colors[0].image} alt={p.name}
                       className="w-full h-full object-cover"
                     />
                   ) : (
