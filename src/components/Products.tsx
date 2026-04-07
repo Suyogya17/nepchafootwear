@@ -74,9 +74,9 @@ export default function Products() {
             className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
           >
             {products.map((product) => {
-              const firstImage = product.colors[0]?.image
-                ? `https://nepcha-server.onrender.com${product.colors[0].image}`
-                : '';
+              const firstImage = product.colors[0]?.image.startsWith('http')
+                ? product.colors[0].image
+                : `https://nepcha-server.onrender.com${product.colors[0].image}`;
 
               return (
                 <motion.div
