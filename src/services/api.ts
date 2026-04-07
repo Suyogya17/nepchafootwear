@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: "https://nepcha-server.onrender.com/api",
+  baseURL: import.meta.env.VITE_API_URL,
 });
 // Automatically attach admin token to every request if it exists
 api.interceptors.request.use((config) => {
