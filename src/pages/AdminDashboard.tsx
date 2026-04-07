@@ -305,7 +305,7 @@ export default function AdminDashboard() {
                 </p>
               )}
 
-              {form.colors.map((color, i) => (
+              {form.colors.map((c, i) => (
                 <div
                   key={i}
                   className="flex items-center gap-3 p-3 border rounded-xl mb-3"
@@ -313,33 +313,33 @@ export default function AdminDashboard() {
                   {/* Color swatch preview */}
                   <div
                     className="w-8 h-8 rounded-full border flex-shrink-0"
-                    style={{ background: color.hex }}
+                    style={{ background: c.hex }}
                   />
 
                   {/* Color name */}
                   <select
-                    value={color.name}
+                    value={c.name}
                     onChange={(e) => updateColor(i, 'name', e.target.value)}
                     className="border rounded-lg px-2 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
                   >
-                    {Object.keys(COLOR_PRESETS).map((c) => (
-                      <option key={c}>{c}</option>
+                    {Object.keys(COLOR_PRESETS).map((col) => (
+                      <option key={col}>{col}</option>
                     ))}
                   </select>
 
                   {/* Hex picker */}
                   <input
                     type="color"
-                    value={color.hex}
+                    value={c.hex}
                     onChange={(e) => updateColor(i, 'hex', e.target.value)}
                     className="w-8 h-8 rounded cursor-pointer border-0 p-0"
                   />
 
                   {/* Image upload */}
                   <div className="flex-1 flex items-center gap-2">
-                    {color.image ? (
+                    {c.image ? (
                       <img
-                        src={color.image.startsWith('http') ? color.image : `https://nepcha-server.onrender.com${color.image}`}
+                        src={c.image.startsWith('http') ? c.image : `https://nepcha-server.onrender.com${c.image}`}
                         className="w-10 h-10 rounded-lg object-cover border"
                       />
                     ) : (
@@ -351,7 +351,7 @@ export default function AdminDashboard() {
                       onClick={() => fileRefs.current[i]?.click()}
                       className="text-xs text-blue-500 hover:underline"
                     >
-                      {color.image ? 'Change' : 'Upload'}
+                      {c.image ? 'Change' : 'Upload'}
                     </button>
                     <input
                       type="file"
