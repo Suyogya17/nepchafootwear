@@ -2,7 +2,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { productService, uploadImage, authService } from '../services/api';
-import { color } from 'framer-motion';
 
 type Color = { name: string; hex: string; image: string; };
 type Product = {
