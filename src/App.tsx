@@ -1,20 +1,24 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Layout from "./hooks/Layout"; // ✅ Your Layout component
-import Home from "./pages/Homepage";
-import AllProducts from "./pages/AllProductspage";
-import ProductDetail from "./pages/ProductDetailPage";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Homepage from './pages/Homepage';
+import AllProductsPage from './pages/AllProductspage';
+import ProductDetailPage from './pages/ProductDetailPage';
+import AdminLoginPage from './pages/AdminLoginPage';
+import AdminDashboard from './pages/AdminDashboard';
+import ProtectedRoute from './components/ProtectedRoute';
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Wrap all pages with your Layout */}
-        <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/products/all" element={<AllProducts />} />
-          <Route path="/product/:id" element={<ProductDetail />} />
-          {/* Add more pages here */}
-        </Route>
+        <Route path="/"            element={<Homepage />} />
+        <Route path="/products/all" element={<AllProductsPage />} />
+        <Route path="/product/:id" element={<ProductDetailPage />} />
+        <Route path="/admin/login" element={<AdminLoginPage />} />
+        <Route path="/admin/dashboard" element={
+          <ProtectedRoute>
+            <AdminDashboard />
+          </ProtectedRoute>
+        } />
       </Routes>
     </BrowserRouter>
   );
