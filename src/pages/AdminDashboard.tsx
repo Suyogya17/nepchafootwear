@@ -189,7 +189,7 @@ export default function AdminDashboard() {
                 <div className="w-16 h-16 rounded-xl overflow-hidden bg-gray-100 flex-shrink-0">
                   {p.colors[0]?.image ? (
                     <img
-                      src={`http://localhost:3000${p.colors[0].image}`}
+                      src={`https://nepcha-server.onrender.com${p.colors[0].image}`}
                       className="w-full h-full object-cover"
                     />
                   ) : (
@@ -339,7 +339,7 @@ export default function AdminDashboard() {
                   <div className="flex-1 flex items-center gap-2">
                     {color.image ? (
                       <img
-                        src={`http://localhost:3000${color.image}`}
+                        src={`https://nepcha-server.onrender.com${color.image}`}
                         className="w-10 h-10 rounded-lg object-cover border"
                       />
                     ) : (

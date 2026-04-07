@@ -75,7 +75,7 @@ export default function Products() {
           >
             {products.map((product) => {
               const firstImage = product.colors[0]?.image
-                ? `http://localhost:3000${product.colors[0].image}`
+                ? `https://nepcha-server.onrender.com${product.colors[0].image}`
                 : '';
 
               return (

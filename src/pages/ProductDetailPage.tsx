@@ -37,7 +37,7 @@ export default function ProductDetail() {
   );
 
   const color = product.colors[selectedColor];
-  const imageUrl = color?.image ? `http://localhost:3000${color.image}` : '';
+  const imageUrl = color?.image ? `https://nepcha-server.onrender.com${color.image}` : '';
 
   return (
     <section className="min-h-screen bg-gray-50 py-20 px-6">
