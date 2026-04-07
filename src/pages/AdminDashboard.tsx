@@ -339,7 +339,7 @@ export default function AdminDashboard() {
                   <div className="flex-1 flex items-center gap-2">
                     {color.image ? (
                       <img
-                        src={`https://nepcha-server.onrender.com${color.image}`}
+                        src={color.image.startsWith('http') ? color.image : `https://nepcha-server.onrender.com${color.image}`}
                         className="w-10 h-10 rounded-lg object-cover border"
                       />
                     ) : (
