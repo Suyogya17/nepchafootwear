@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { productService } from '../services/api';
+import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
 
 type Color = {
   name: string;
@@ -63,7 +65,7 @@ export default function AllProducts() {
   return (
     <section className="py-20 bg-gray-50 min-h-screen">
       <div className="px-6 max-w-7xl mx-auto">
-
+        <Navigation />
         <div className="text-center mb-10">
           <h1 className="text-4xl font-bold text-gray-900">All Products</h1>
           <p className="mt-2 text-gray-600">Explore our premium footwear collection</p>
@@ -108,8 +110,9 @@ export default function AllProducts() {
           ) : (
             <p className="col-span-3 text-center text-gray-500">No products found.</p>
           )}
-        </div>
+        </div>   
       </div>
+       <Footer  />
     </section>
   );
 }
