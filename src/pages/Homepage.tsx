@@ -5,6 +5,7 @@ import Services from '../components/Service';
 import Products from '../components/Products';
 import Contact from '../components/Contact';
 import { FloatingWhatsApp } from 'react-floating-whatsapp'
+import Footer from '../components/Footer';
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Products />
       <Contact />
       <FloatingWhatsApp phoneNumber={'9828885834'} accountName={'Nepcha International Industry'} avatar={'/shoesimg/nepcha.png'} onSubmit={()=>{console.log("Message Sent ")}} />
+      <Footer />
     </div>
   );
 }
