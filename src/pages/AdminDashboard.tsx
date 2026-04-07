@@ -3,7 +3,7 @@ import { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { productService, uploadImage, authService } from '../services/api';
 
-type Color = { name: string; hex: string; image: string; };
+type Color = { name: string; hex: string; image: string };
 type Product = {
   _id: string; name: string; category: string;
   size: string; description: string; colors: Color[];
@@ -189,7 +189,7 @@ export default function AdminDashboard() {
                 <div className="w-16 h-16 rounded-xl overflow-hidden bg-gray-100 flex-shrink-0">
                   {p.colors[0]?.image ? (
                     <img
-                     src={p.colors[0].image.startsWith('http') ? p.colors[0].image : `https://nepcha-server.onrender.com${p.colors[0].image}`}
+                      src={p.colors[0].image.startsWith('http') ? p.colors[0].image : `https://nepcha-server.onrender.com${p.colors[0].image}`}
                       className="w-full h-full object-cover"
                     />
                   ) : (
