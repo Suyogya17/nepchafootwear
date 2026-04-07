@@ -120,7 +120,7 @@ export default function AllProducts() {
 function ProductCard({ product, onClick }: { product: Product; onClick: () => void }) {
   const [hoveredColor, setHoveredColor] = useState<number>(0);
   const displayImage = product.colors[hoveredColor]?.image
-    ? product.colors[hoveredColor].image
+    ? `https://nepcha-server.onrender.com${product.colors[hoveredColor].image}`
     : '';
 
   return (
