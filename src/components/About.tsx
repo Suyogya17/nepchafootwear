@@ -210,32 +210,64 @@ export default function About() {
         </h3>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {dealers.map((dealer, index) => (
-            <motion.div
-              key={dealer.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.15 }}
-              whileHover={{ scale: 1.05 }}
-              className="border rounded-2xl overflow-hidden hover:shadow-xl transition"
-            >
-              <img
-                src={dealer.logo}
-                alt={dealer.name}
-                className="w-full h-60 object-cover"
-              />
+  {dealers.map((dealer, index) => (
+    <motion.div
+      key={dealer.id}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.15 }}
+      whileHover={{ scale: 1.05 }}
+      className="border rounded-2xl overflow-hidden hover:shadow-xl transition bg-white"
+    >
+      {/* IMAGE */}
+      <img
+        src={dealer.logo}
+        alt={dealer.name}
+        className="w-full h-56 object-cover"
+      />
 
-              <div className="p-4">
-                <h4 className="font-semibold text-gray-900">
-                  {dealer.name}
-                </h4>
-                <p className="text-sm text-gray-600">
-                  {dealer.address}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+      {/* CONTENT */}
+      <div className="p-5 space-y-2">
+        <h4 className="font-semibold text-lg text-gray-900">
+          {dealer.name}
+        </h4>
+
+        <p className="text-sm text-gray-600">
+          {dealer.address}
+        </p>
+
+        {/* CONTACT */}
+        <a
+          href={`tel:${dealer.contact}`}
+          className="block text-sm font-medium text-orange-500 hover:underline"
+        >
+          📞 {dealer.contact}
+        </a>
+
+        {/* ACTION BUTTONS */}
+        <div className="flex gap-3 mt-3">
+          {/* CALL */}
+          <a
+            href={`tel:${dealer.contact}`}
+            className="flex-1 text-center bg-orange-500 text-white py-2 rounded-lg text-sm hover:bg-orange-600 transition"
+          >
+            Call
+          </a>
+
+          {/* MAP */}
+          <a
+            href={dealer.mapLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 text-center border py-2 rounded-lg text-sm hover:bg-gray-100 transition"
+          >
+            View Map
+          </a>
         </div>
+      </div>
+    </motion.div>
+  ))}
+</div>
       </div>
 
     </section>
